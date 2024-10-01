@@ -1,0 +1,22 @@
+{
+  "students": [
+    {
+      "id": "e431",
+      "name": "dhruvi",
+      "number": "6544681685",
+      "course": "full stack"
+    },
+    {
+      "id": "6e2c",
+      "name": "khushi",
+      "number": "3565355445",
+      "course": "backend"
+    },
+    {
+      "id": "be64",
+      "name": "nisha",
+      "number": "8761686544",
+      "course": "frontend"
+    }
+  ]
+}
