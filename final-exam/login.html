@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header style="background-color: black; padding: 10px 20px; text-align: center;">
+        <a href="./index.html">Home</a>
+        <a href="./add product.html">add</a>
+        <a href="./signup.html">sing up</a>
+        <a href="./login.html">Login</a>
+    </header>
+    <div class="container">
+        <div class="hader">
+            <div class="slidebar">
+                <div class="logo">
+                    <img id="logo-img" src="" alt="">
+                    <h1 id="logo-text"></h1>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <h2>Login</h2>
+            <label>Username:</label>
+            <input type="text" id="username" placeholder="enter your username" class="p-1" required/><br>
+            <label>Password:</label>
+            <input type="password" id="password" placeholder="enter your password" class="p-1" required/><br>
+            <button id="login-btn">Login</button>
+          </div>
+        </div>
+        <script>
+          let usernameInput=document.getElementById("username");
+          let passwordInput=document.getElementById("password");
+          let loginBtn=document.getElementById("login-btn");
+          let logoImg=document.getElementById("logo-img");
+          let logoText=document.getElementById("logo-text");
+          
+          // Check if user is already logged in
+          if (localStorage.getItem("name")) {
+            logoText.innerHTML = localStorage.getItem("name");
+            logoImg.src = localStorage.getItem("imgUrl");
+          }
+          
+          loginBtn.addEventListener("click",()=>{
+            let username=usernameInput.value;
+            let password=passwordInput.value;
+            
+            // Check if username and password match with stored data
+            if (username === localStorage.getItem("name") && password === "password") {
+              window.location.href = "index.html";
+            } else {
+              alert("Invalid username or password");
+            }
+          });
+        </script>
+      </body>
+      </html>
