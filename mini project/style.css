@@ -1,0 +1,15 @@
+body {
+    background-color: #121212;
+    color: #fff;
+  }
+  
+  textarea {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #746f6f;
+    border: 1px solid #f4e8e8;
+  }
+  
+  iframe {
+    border: 1px solid #ddd;
+    background-color: #fff;
+  }
