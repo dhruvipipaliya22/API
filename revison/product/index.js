@@ -71,7 +71,7 @@ const handleDelete = (index) => {
       let div = document.createElement("div");
       let name = document.createElement("h1");
       name.innerHTML = cart[i].name;
-      let price = document.createElement("p");
+      let price = document.createElement("p"); 
       price.innerHTML = cart[i].price;
       let qty = document.createElement("p");
       qty.innerHTML = `Quantity: ${cart[i].qty}`;
