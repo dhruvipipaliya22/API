@@ -50,30 +50,38 @@ setInterval(() => {
 
 // enter time
 document.getElementById("start").addEventListener("click", function () {
-    let hours = parseInt(document.getElementById("hours").value);
-    let minutes = parseInt(document.getElementById("minutes").value);
-    let seconds = parseInt(document.getElementById("seconds").value);
+    let hours = parseInt(document.getElementById("hours").value) || 0;
+    let minutes = parseInt(document.getElementById("minutes").value) || 0;
+    let seconds = parseInt(document.getElementById("seconds").value) || 0;
 
-    hours = Math.max(0, Math.min(23, hours));
-    minutes = Math.max(0, Math.min(59, minutes));
-    seconds = Math.max(0, Math.min(59, seconds));
+    hours = Math.max(0, Math.min(24, hours));
+    minutes = Math.max(0, Math.min(60, minutes));
+    seconds = Math.max(0, Math.min(60, seconds));
 
     let totalTime = hours * 3600 + minutes * 60 + seconds;
+
     let interval = setInterval(function () {
-        let hours = Math.floor(totalTime / 3600);
-        let minutes = Math.floor((totalTime % 3600) / 60);
-        let seconds = totalTime % 60;
+      let hours = Math.floor(totalTime / 3600);
+      let minutes = Math.floor((totalTime % 3600) / 60);
+      let seconds = totalTime % 60;
 
-        if (hours < 10) { hours = '0' + hours; }
-        if (minutes < 10) { minutes = '0' + minutes; }
-        if (seconds < 10) { seconds = '0' + seconds; }
+      if (hours < 10) {
+        hours = '0' + hours;
+      }
+      if (minutes < 10) {
+        minutes = '0' + minutes;
+      }
+      if (seconds < 10) {
+        seconds = '0' + seconds;
+      }
 
-        totalTime--;
-        if (totalTime < 0) {
-            clearInterval(interval);
-            document.getElementById("counter").innerHTML = "Time's up!";
-        } else {
-            document.getElementById("counter").innerHTML = `${hours}:${minutes}:${seconds}`;
-        }
+      totalTime--;
+
+      if (totalTime < 0) {
+        clearInterval(interval);
+        document.getElementById("counter").innerHTML = "Time's up!";
+      } else {
+        document.getElementById("counter").innerHTML = `${hours}:${minutes}:${seconds}`;
+      }
     }, 1000);
-});
+  });

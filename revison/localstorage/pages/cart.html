@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <style>
+         #cartdata {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background-color: rgb(143, 140, 135);
+            padding: 10px 20px;
+        }
+
+        /* #cartdata div {
+            border: 1px solid #c1bcbc;
+            border-radius: 10px;
+            background: #c0bfbf;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            width: 80%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        } */
+
+        #cartdata img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/revison/localstorage/index.html">home</a>
+        <a href="/revison/localstorage/pages/add product.html">add product</a>
+        <a href="/revison/localstorage/pages/cart.html">cart</a>
+    </nav>
+
+    <body>
+        <div class="cart-container">
+            <h1>Cart</h1>
+            <div id="cartdata"></div>
+            <h2 id="bill"></h2>
+        </div>
+        <script src="/revison/localstorage/js/cart.js"></script>
+    </body>
+</html>
