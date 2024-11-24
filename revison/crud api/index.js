@@ -1,4 +1,4 @@
-
+let users=[];
 const handaldata=(e)=>{
     e.preventDefault();
     let name=document.getElementById("name").value;
