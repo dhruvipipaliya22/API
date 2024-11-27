@@ -1,6 +1,5 @@
-import apiMethod from "../API/api.js";
-import getValue from "../components/helper.js";
 import navbar from "../components/navbar.js";
+import apimethod from "../url/api.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 
@@ -9,16 +8,17 @@ const handaldata = (e) => {
     e.preventDefault();
 
     const user = {
-        name:getValue("name"),
-        email:getValue("email"),
-        password:getValue("password")
+        name:("name"),
+        email:("email"),
+        password:("password"),
     };
   
-    apiMethod.post(user);
+    apimethod.post(user);
+    window.location.href="/revison/api project/api product/pages/login.html"
 }
 
 const getData = async () => {
-    userarray = await apiMethod.get();
+    let userarry = await apimethod.get();
 }
 
 document.getElementById("signup").addEventListener("submit",handaldata);

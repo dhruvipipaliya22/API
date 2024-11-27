@@ -1,4 +1,4 @@
-let url="http://localhost:3001/products"
+let url="http://localhost:3000/products";
 const productapi = {
     get: async () =>{
         const req = await fetch(url)

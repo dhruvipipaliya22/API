@@ -1,4 +1,4 @@
-let url="http://localhost:3001/user"
+let url="http://localhost:3000/user"
 const apimethod = {
     get: async () =>{
         const req = await fetch(url)
@@ -12,6 +12,11 @@ const apimethod = {
                 "content-type":"application/json"
             },
             body:JSON.stringify(data)
+        })
+    },
+    delete:async (id)=>{
+        await fetch(`${url}/${id}`,{
+            method:"Delete",
         })
     }
 }

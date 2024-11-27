@@ -1,21 +1,31 @@
-import getValue from "../components/helpr.js";
+import { Logout } from "../components/helpr.js";
 import navbar from "../components/navbar.js";
+import productapi from "../url/productapi.js";
 
-document.getElementById("navbar").innerHTML = navbar();
+document.getElementById("navbar").innerHTML =navbar();
 
-const handalform = (e) => {
-    e.preventDfault();
-    document.getElementById("display").innerHTML=" ";
-    products.map(() => {
-        let div = getValue("div");
-        let name = getValue("name");
-        let price = getValue("price");
-        let img = getValue("img");
+const isLogin = localStorage.getItem("isLogin") || false;
 
-        name.innerHTML = e.name;
-        price.innerHTML = e.price;
-        img.src = e.img;
-        div.append(img,name,price)
-        document.getElementById("display").append(div);
-    })
+if (!isLogin) {
+  alert("login first")
+  window.location.href = "/revison/api project/api product/pages/login.html";
 }
+
+const displayproduct = async () => {
+  const productary = await productapi.get();
+  document.getElementById("display").innerHTML = "";
+  productary.map((product) => {
+    let div = document.createElement("div");
+    let name = document.createElement("p");
+    name.innerHTML = product.name;
+    let price = document.createElement("p");
+    price.innerHTML = product.price;
+    let img = document.createElement("img");
+    img.src = product.img;
+    div.append(img, name, price);
+    document.getElementById("display").append(div);
+  });
+}
+
+displayproduct();
+Logout();
