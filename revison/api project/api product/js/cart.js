@@ -35,8 +35,8 @@ const displaycart = async () => {
     qty.innerHTML = `Qty:${cart.qty}`;
     btn2.innerHTML="-";
 
-    btn1.addEventListener("click",async () => {
-      await cart[index].qty++;
+    btn1.addEventListener("click",() => {
+      cart[index].qty++;
       // localStorage.setItem("cart", JSON.stringify(cart));
       window.location.reload();
       // displaycart();

@@ -7,7 +7,7 @@ const navbar=()=>{
         <a href="/revison/api project/api product/pages/profile.html" class="p-2 m-2">Profile</button>
         <button id="Logout">Logout</button>`
     return`
-    <nav class="p-3">
+    <nav class="p-4 text-white">
         <a href="/revison/api project/api product/index.html" class="p-2 m-2">Home</a>
         <a href="/revison/api project/api product/pages/productform.html" class="p-2 m-2">Product Form</a>
         <a href="/revison/api project/api product/pages/cart.html" class="p-2 m-2">Cart</a>
