@@ -13,7 +13,19 @@ const productapi = {
             },
             body:JSON.stringify(data)
         })
-    }
+    },
+    delete:async (id)=>{
+        await fetch(`${url}/${id}`,{
+            method:"DELETE",
+        })
+    },
+    patch: async (id, data) => {
+        await fetch(`${url}/${id}`, {
+          method: "PATCH",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(data),
+        });
+      },
 }
 
 export default productapi

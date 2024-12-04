@@ -1,3 +1,10 @@
 {
-    "data":[]
+  "data": [
+    {
+      "id": "b580",
+      "name": "dhruvi",
+      "password": "552",
+      "email": "dhruvi@gmail.com"
+    }
+  ]
 }

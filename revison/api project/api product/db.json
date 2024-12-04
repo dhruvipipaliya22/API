@@ -1,5 +1,54 @@
 {
   "user": [
+    {
+      "id": "47b1",
+      "name": "dhruvi",
+      "email": "dhruvi@gmail.com",
+      "password": "159753"
+    },
+    {
+      "id": "2bdc",
+      "name": "dhruvi",
+      "email": "khushi@gmail.com",
+      "password": "987654",
+      "cart": []
+    }
   ],
-  "products": []
+  "products": [
+    {
+      "id": "94af",
+      "name": "tshirt",
+      "price": "2512",
+      "img": "https://i.pinimg.com/564x/63/15/47/631547899e6f0a6d04a2e53079e8c54f.jpg",
+      "qty": 1
+    },
+    {
+      "id": "2129",
+      "name": "tshirt",
+      "price": "254",
+      "img": "https://tse2.mm.bing.net/th?id=OIP.CWHyvz_eh-BeALEjfb9j2AHaJc&pid=Api&P=0&h=180",
+      "qty": 2
+    },
+    {
+      "id": "0024",
+      "name": "tshirt",
+      "price": "254",
+      "img": "https://tse2.mm.bing.net/th?id=OIP.CWHyvz_eh-BeALEjfb9j2AHaJc&pid=Api&P=0&h=180",
+      "qty": 1
+    },
+    {
+      "id": "79ea",
+      "name": "javascript",
+      "price": "654",
+      "img": "https://cdn-img.prettylittlething.com/7/b/2/5/7b25cab6366f5bb907effc848765ed3201c29238_CML0634_1.jpg",
+      "qty": 2
+    },
+    {
+      "id": "1f23",
+      "name": "javascript-exam",
+      "price": "542",
+      "img": "https://tse2.mm.bing.net/th?id=OIP.CWHyvz_eh-BeALEjfb9j2AHaJc&pid=Api&P=0&h=180",
+      "qty": 1
+    }
+  ]
 }

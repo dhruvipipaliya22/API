@@ -1,5 +1,4 @@
 import navbar from "../components/navbar.js";
-import getValue from "../components/helpr.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 
@@ -11,11 +10,10 @@ if (!isLogin) {
 }
 
 const displayProfile = () => {
-  const userData = localStorage.getItem("userData");
-  const user = JSON.parse(userData);
-  getValue("profile-name").innerHTML = user.name;
-  getValue("profile-email").innerHTML = user.email;
-  getValue("profile-password").innerHTML = user.password;
+  const user=JSON.parse(localStorage.getItem("userData"));
+  let name=document.getElementById("name").innerHTML = `Username:${user.name}`;
+  let email=document.getElementById("email").innerHTML = `Email:${user.email}`;
+  let password=document.getElementById("password").innerHTML = `Password:${user.password}`;
 }
 
 displayProfile();

@@ -1,15 +1,13 @@
 const getValue = (id) => {
-    document.getElementById(id).value;
-};
-const Logout = () => {
-    localStorage.setItem("isLogin", false)
-    localStorage.removeItem("isLogin")
+    return document.getElementById(id).value;
+  };
+  
+  const Logout = () => {
     const logoutbtn = document.getElementById("Logout")
-    logoutbtn 
-    ? logoutbtn.addEventListener("click", () => {
-        localStorage.removeItem("isLogin");
-        window.location.reload();
-    })
-    : null;
-}
-export { getValue, Logout };
+    logoutbtn ? logoutbtn.addEventListener("click", () => {
+      localStorage.removeItem("isLogin");
+      window.location.reload();
+    }) : null;
+  }
+  
+  export { getValue, Logout };

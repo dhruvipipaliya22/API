@@ -9,15 +9,15 @@ const apimethod = {
         await fetch(url,{
             method:"post",
             headers:{
-                "content-type":"application/json"
+                "content-type":"application/json",
             },
-            body:JSON.stringify(data)
-        })
+            body:JSON.stringify(data),
+        });
     },
-    delete:async (id)=>{
+    delete:async (id) => {
         await fetch(`${url}/${id}`,{
-            method:"Delete",
-        })
-    }
+            method:"DELETE",
+        });
+    },
 }
 export default apimethod

@@ -5,21 +5,19 @@ document.getElementById("navbar").innerHTML = navbar();
 
 
 const handaldata = (e) => {
-    e.preventDefault();
-
-    const user = {
-        name:("name"),
-        email:("email"),
-        password:("password"),
-    };
-  
-    apimethod.post(user);
-    window.location.href="/revison/api project/api product/pages/login.html"
+  e.preventDefault();
+  const user = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    password: document.getElementById("password").value,
+    cart:[],
+  };
+  apimethod.post(user);
+  window.location.href = "/revison/api project/api product/pages/login.html";
 }
 
-const getData = async () => {
-    let userarry = await apimethod.get();
-}
-
-document.getElementById("signup").addEventListener("submit",handaldata);
-getData();
+document.getElementById("signup").addEventListener("submit", handaldata);
+// const getData = async () => {
+//     let userarry = await apimethod.get();
+// }
+// getData();
