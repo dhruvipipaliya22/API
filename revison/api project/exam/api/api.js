@@ -1,5 +1,6 @@
-let url="http://localhost:3000/user"
-const apimethod = {
+let url = "http://localhost:3000/data"
+
+let method = {
     get: async () =>{
         const req = await fetch(url)
         const res = await req.json();
@@ -20,4 +21,4 @@ const apimethod = {
         });
     },
 }
-export default apimethod
+export default method

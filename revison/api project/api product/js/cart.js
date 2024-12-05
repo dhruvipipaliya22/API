@@ -37,20 +37,12 @@ const displaycart = async () => {
 
     btn1.addEventListener("click",() => {
       cart[index].qty++;
-      // localStorage.setItem("cart", JSON.stringify(cart));
       window.location.reload();
-      // displaycart();
     });
     btn2.addEventListener("click", () => {
-      if(cart[index].qty>1){
-        cart[index].qty--;
-        // localStorage.setItem("cart", JSON.stringify(cart));
+      if(cart[index].qty>=1){
+        cart[index].qty--;          
         window.location.reload();
-        // displaycart();
-      }
-      else if(cart[index].qty>0){
-        // window.location.reload();
-        // displaycart();
       }
     });
     div.append(img, name, price, btn1,qty,btn2,deletbtn);
@@ -59,5 +51,6 @@ const displaycart = async () => {
   });
 
 }
+
 displaycart();
 Logout();

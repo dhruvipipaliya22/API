@@ -14,6 +14,7 @@ if (!isLogin) {
 
 const displayproduct = async () => {
   const productary = await productapi.get();
+  // const productary=await method.get();
   document.getElementById("display").innerHTML = "";
   productary.map((product) => {
     let div = document.createElement("div");
@@ -29,6 +30,7 @@ const displayproduct = async () => {
     cartbtn.innerHTML = "Add to cart";
     deletbtn.addEventListener("click", async () => { 
       await productapi.delete(product.id); 
+      // await method.delete(`/products/${id}`)
       displayproduct()
     })
     cartbtn.addEventListener("click", () => addtocart(product))
@@ -39,7 +41,6 @@ const displayproduct = async () => {
 const addtocart = async (elem) => {
   let user = JSON.parse(localStorage.getItem("user"));
   await productapi.get(`/cart/${user}`);
-  
 
   let existproduct = false;
   const productary = await productapi.get();
