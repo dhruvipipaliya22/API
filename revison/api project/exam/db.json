@@ -1,11 +1,23 @@
 {
-  "data": [
+  "data": [],
+  "products": [
     {
-      "id": "055a",
-      "name": "dhruvi",
-      "email": "dhruvi@gmail.com",
-      "password": "123456"
+      "id": "1733785646526",
+      "name": "tshirt",
+      "price": "654",
+      "img": "https://cdn-img.prettylittlething.com/7/b/2/5/7b25cab6366f5bb907effc848765ed3201c29238_CML0634_1.jpg"
+    },
+    {
+      "id": "1733873037263",
+      "name": "tshirt",
+      "price": "5532",
+      "img": "https://i.pinimg.com/564x/63/15/47/631547899e6f0a6d04a2e53079e8c54f.jpg"
+    },
+    {
+      "id": 1733957982803,
+      "name": "tshirt",
+      "price": "651",
+      "img": "https://i.pinimg.com/200x200/15//631547899e6f0a6d04a2e53079e8c54f.jpg"
     }
-  ],
-  "products": []
+  ]
 }

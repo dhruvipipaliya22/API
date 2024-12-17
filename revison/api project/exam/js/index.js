@@ -1,4 +1,4 @@
-import method from "../api/api.js";
+import productmethod from "../api/productapi.js";
 import navbar from "../components/navbar.js";
 
 document.getElementById("navbar").innerHTML = navbar();
@@ -12,13 +12,13 @@ const checkLogin = () => {
     islogin();
   } else {
     displayproduct();
-    return
   }
-}
+};
+
 const displayproduct = async () => {
-  const productary = await method.get();
-  document.getElementById("display").innerHTML = "";
-  productary.map((product) => {
+  const productary = await productmethod.get();
+  document.getElementById("display").innerHTML = " ";
+  productary.forEach(product => {
     let div = document.createElement("div");
     let name = document.createElement("p");
     name.innerHTML = product.name;
@@ -30,13 +30,20 @@ const displayproduct = async () => {
     deletbtn.innerHTML = "Delete";
     let cartbtn = document.createElement("button");
     cartbtn.innerHTML = "Add to cart";
+    cartbtn.addEventListener("click", () => {
+      addCart(product);
+      alert("Product added to cart!");
+    });
     deletbtn.addEventListener("click", async () => {
-      await method.delete(product.id);
-      displayproduct()
-    })
-    div.append(img, name, price, deletbtn);
+      await productmethod.delete(product.id);
+      displayproduct();
+    });
+    div.append(img, name, price, cartbtn, deletbtn);
     document.getElementById("display").append(div);
   });
 }
-checkLogin();
+const addCart = (product) => {
+  console.log(product);
+};
 displayproduct();
+checkLogin();

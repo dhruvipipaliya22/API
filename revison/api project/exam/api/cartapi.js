@@ -1,5 +1,5 @@
-let url = "http://localhost:3000/data"
-let productmethod = {
+let url = "http://localhost:3000/products"
+let cartmethod = {
     get: async () => {
         const req = await fetch(url)
         const res = await req.json();
@@ -29,4 +29,4 @@ let productmethod = {
         });
     },
 }
-export default productmethod
+export default cartmethod

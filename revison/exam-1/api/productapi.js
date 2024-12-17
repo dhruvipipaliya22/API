@@ -1,5 +1,6 @@
-let url = "http://localhost:3000/data"
-let productmethod = {
+let url = "http://localhost:3000/product"
+
+const productapi = {
     get: async () => {
         const req = await fetch(url)
         const res = await req.json();
@@ -9,15 +10,15 @@ let productmethod = {
         await fetch(url, {
             method: "post",
             headers: {
-                "content-type": "application/json",
+                "content-type": "application/json"
             },
-            body: JSON.stringify(data),
-        });
+            body: JSON.stringify(data)
+        })
     },
     delete: async (id) => {
         await fetch(`${url}/${id}`, {
             method: "DELETE",
-        });
+        })
     },
     patch: async (id, data) => {
         await fetch(`${url}/${id}`, {
@@ -29,4 +30,4 @@ let productmethod = {
         });
     },
 }
-export default productmethod
+export default productapi
