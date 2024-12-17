@@ -6,7 +6,7 @@ document.getElementById("navbar").innerHTML = navbar();
 const handaldata = async () => {
     const productdata = await productapi.get();
     document.getElementById("display").innerHTML = "";
-    productdata.map((product) => {
+    productdata.map((product,index) => {
         let div = document.createElement("div");
         let name=document.createElement("h2");
         name.innerHTML=product.name;
@@ -18,6 +18,7 @@ const handaldata = async () => {
         deletbtn.innerHTML = "Delete";
         let cartbtn = document.createElement("button");
         cartbtn.innerHTML = "Add to cart";
+        cartbtn.addEventListener(addtocart(index));
         deletbtn.addEventListener("click", async () => {
             await productapi.delete(product.id);
             displayproduct()
