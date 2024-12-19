@@ -1,5 +1,4 @@
 import cartapi from "../api/cartapi.js";
-import productapi from "../api/productapi.js";
 import navbar from "../coumponents/navbar.js";
 
 document.getElementById("navbar").innerHTML = navbar();

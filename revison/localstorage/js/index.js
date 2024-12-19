@@ -57,16 +57,4 @@ document.getElementById("apply").addEventListener("click", () => {
   mapper(filteredBooklist);
 });
 
-// document.getElementById("apply1").addEventListener("click",()=>{
-//   const sortbooks=()=>{
-//     const sortvalue=document.querySelector("#sort").value;
-//     if(sortvalue==="default"){}
-//     else if(sortvalue==="lth"){
-//       book.sort((a,b)=>a.price-b.price)
-//     }
-//     else if(sortvalue==="htl"){
-//       book.sort((a,b)=>b.price-a.price)
-//     }
-//   }
-// });
 mapper(book);

@@ -57,7 +57,6 @@ const handalremove = (index) => {
   displaybill();
 };
 
-
 const displaybill = () => {
   let bill = 0;
   let gst = 0;
