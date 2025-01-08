@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/revison/exam-2/style/style.css">
+    <style>
+           #result,#cart-result{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    background-color: rgb(143, 140, 135);
+    padding: 10px 20px;
+}
+        #product-list {
+  width: 50%;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#product-list h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#product-list label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#product-list input[type="text"], #product-list input[type="email"], #product-list input[type="number"] {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+#product-list input[type="submit"] {
+  width: 100%;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#product-list input[type="submit"]:hover {
+  background-color: #555;
+}
+#product-list img{
+    width: 200px;
+    height: 300px;
+}
+    </style>
+</head>
+<body>
+     <!-- navbar -->
+     <nav>
+        <div class="logo">
+            <h1>Shoppy</h1>
+        </div>
+        <ul>
+            <li><a href="/revison/exam-2/index.html" class="active">Home</a></li>
+            <li><a href="#shop" id="shops">Shop</a></li>
+            <li><a href="#review" id="reviews">Review</a></li>
+            <li><a href="#blog" id="blogs">Blog</a></li>
+            <li><a href="#contact" id="contacts">Contact</a></li>
+            <li><a href="">Add Product</a></li>
+
+        </ul>
+        <div class="icon" style="color: white;">
+            <i id="bar" class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+    <form id="product-list">
+        <h1>Product Form</h1>
+        <label>Product Name:</label>
+        <input type="text" id="name" placeholder="Enter your Product name" required/><br>
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" required/><br>
+        <label>Price:</label>
+        <input type="number" id="price" placeholder="Enter your price" required/><br>
+        <label>Image URL:</label>
+        <input type="text" id="img" placeholder="Enter your Image URL" required/><br>
+        <input type="submit">
+    </form>
+    <h1>Product</h1>
+    <div id="result"></div>
+    <h1>cart</h1>
+    <div id="cart-result"></div>
+    <script src="/revison/exam-2/js/add product.js"></script>
+</body>
+</html>

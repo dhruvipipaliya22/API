@@ -49,7 +49,6 @@ const displaycart = async () => {
     document.getElementById("display-cart").append(div);
   }
   });
-
 }
 
 displaycart();
