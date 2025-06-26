@@ -1,6 +1,8 @@
 import navbar from "../componets/helper.js";
 
-document.getElementById("navbar").innerHTML=navbar();
+
+// document.getElementById("navbar").innerHTML=navbar();
+document.getElementById("navbar").innerHTML= navbar
 
 let product = JSON.parse(localStorage.getItem("product")) || [];
 let cart=JSON.parse(localStorage.getItem("cart"))||[];
