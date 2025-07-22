@@ -25,4 +25,4 @@ const handalproduct = async (e) => {
 }
 
 document.getElementById("productForm").addEventListener("submit", handalproduct)
-Logout()
+Logout();
