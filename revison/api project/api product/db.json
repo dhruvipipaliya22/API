@@ -1,13 +1,5 @@
 {
-  "user": [
-    {
-      "id": "57dd",
-      "name": "dhruvi",
-      "email": "dhruvi@gmail.com",
-      "password": "123456",
-      "cart": []
-    }
-  ],
+  "user": [],
   "products": [
     {
       "id": "2129",

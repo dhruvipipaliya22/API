@@ -1,6 +1,6 @@
 import { Logout } from "../components/helpr.js";
 import navbar from "../components/navbar.js";
-import productapi from "../url/productapi.js";
+// import productapi from "../url/productapi.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 

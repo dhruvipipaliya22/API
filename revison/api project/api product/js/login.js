@@ -9,7 +9,7 @@ const handallogin = async (e) => {
   let password = getValue("password");
   let users = await apimethod.get();
   let user = users.filter((e) => e.email === email)
-  if (user.length == 0) {
+  if (user.length === 0) {
     alert("Email doesn't exist!!,please signup first!!")
     return
   }

@@ -4,12 +4,12 @@ import productapi from "../url/productapi.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 
-const isLogin = localStorage.getItem("isLogin") || false;
+const isLogin = localStorage.getItem("isLogin") || true;
 
 
-if (!isLogin) {
+if (isLogin === false) {
   alert("login first")
-  window.location.href = "/revison/api project/api product/pages/login.html";
+  window.location.href = "";
 }
 
 const displayproduct = async () => {
@@ -37,7 +37,7 @@ const displayproduct = async () => {
   });
 }
 const addtocart = async (elem) => {
-  let user = JSON.parse(localStorage.getItem("user"));
+  let user = JSON.parse(localStorage.getItem("userData"));
   await productapi.get(`/cart/${user}`);
 
   let existproduct = false;
