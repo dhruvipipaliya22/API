@@ -4,12 +4,11 @@ import productapi from "../url/productapi.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 
-const isLogin = localStorage.getItem("isLogin") || true;
+const isLogin = localStorage.getItem("isLogin") || false;
 
-
-if (isLogin === false) {
+if (!isLogin) {
   alert("login first")
-  window.location.href = "";
+  window.location.href = "/revison/api project/api product/pages/login.html";
 }
 
 const displayproduct = async () => {
@@ -29,30 +28,46 @@ const displayproduct = async () => {
     cartbtn.innerHTML = "Add to cart";
     deletbtn.addEventListener("click", async () => {
       await productapi.delete(product.id);
-      displayproduct()
+      displayproduct();
     })
     cartbtn.addEventListener("click", () => addtocart(product))
     div.append(img, name, price, deletbtn, cartbtn);
     document.getElementById("display").append(div);
   });
 }
+// const addtocart = async (elem) => {
+//   let user = JSON.parse(localStorage.getItem("userData"));
+//   await productapi.get(`/cart/${user}`);
+
+//   let existproduct = false;
+//   const productary = await productapi.get();
+//   productary.map((e) => {
+//     if (e.id === elem.id) {
+//       e.qty++;
+//       existproduct = true;
+//     }
+//   });
+
+//   if (!existproduct) {
+//     productary.push({ ...elem, qty: 1 });
+//   }
+//   await productapi.patch(`${elem.id}`, { qty: elem.qty + 1 });
+// };
 const addtocart = async (elem) => {
-  let user = JSON.parse(localStorage.getItem("userData"));
-  await productapi.get(`/cart/${user}`);
+  // let user = JSON.parse(localStorage.getItem("userData"));
+  // let cart = user.cart || [];
 
-  let existproduct = false;
-  const productary = await productapi.get();
-  productary.map((e) => {
-    if (e.id === elem.id) {
-      e.qty++;
-      existproduct = true;
-    }
-  });
+  let existProduct = cart.find((e) => item.id === e.id);
 
-  if (!existproduct) {
-    productary.push({ ...elem, qty: 1 });
+  if (existProduct) {
+    existProduct.qty += 1;
+    alert("Product quantity increased in cart.");
+  } else {
+    cart.push({ ...elem, qty: 1 });
+    alert("Product added to cart.");
   }
-  await productapi.patch(`${elem.id}`, { qty: elem.qty + 1 });
+
 };
+
 displayproduct();
 Logout();

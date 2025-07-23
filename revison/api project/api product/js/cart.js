@@ -1,6 +1,6 @@
 import { Logout } from "../components/helpr.js";
 import navbar from "../components/navbar.js";
-// import productapi from "../url/productapi.js";
+import productapi from "../url/productapi.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 
@@ -12,6 +12,7 @@ if (!isLogin) {
 }
 
 const displaycart = async () => {
+  // const cart = user.cart || [];
   const productary = await productapi.get();
   document.getElementById("display-cart").innerHTML = "";
   productary.map((cart,index) => {
@@ -53,3 +54,4 @@ const displaycart = async () => {
 
 displaycart();
 Logout();
+

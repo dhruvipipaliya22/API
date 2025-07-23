@@ -1,6 +1,4 @@
-const getValue = (id) => {
-    return document.getElementById(id).value;
-  };
+const getValue = (id) => document.getElementById(id).value;
   
   const Logout = () => {
     const logoutbtn = document.getElementById("Logout")

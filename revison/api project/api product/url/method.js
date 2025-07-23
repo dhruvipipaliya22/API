@@ -1,4 +1,4 @@
-const basurl="http://localhost:3000"
+const basurl="http://localhost:3000/"
 
 const method={
     get:async(endpoint)=>{
