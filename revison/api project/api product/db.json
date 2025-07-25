@@ -5,8 +5,23 @@
       "name": "dhruvi",
       "email": "dhruvi@gmail.com",
       "password": "221920",
-      "cart": []
+      "cart": "121d"
     }
   ],
-  "products": []
+  "products": [
+    {
+      "id": "121d",
+      "name": "tshirt",
+      "price": "541",
+      "img": "https://i.pinimg.com/564x/63/15/47/631547899e6f0a6d04a2e53079e8c54f.jpg",
+      "qty": 14
+    },
+    {
+      "id": "38cd",
+      "name": "tshirt",
+      "price": "541",
+      "img": "https://in.pinterest.com/pin/806285139553777957/",
+      "qty": 3
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 import { Logout } from "../components/helpr.js";
 import navbar from "../components/navbar.js";
-import productapi from "../url/productapi.js";
+import cartapi from "../url/cartapi.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 
@@ -12,51 +12,76 @@ if (!isLogin) {
 }
 
 const displaycart = async () => {
+  const productcart = await cartapi.get();
+  console.log("Cart items:", productcart); // 🔍 Debug
 
-  const productary = await productapi.get();
   document.getElementById("display-cart").innerHTML = "";
-  productary.map((cart, index) => {
+
+  if (!Array.isArray(productcart)) {
+    console.error("Cart data is not an array");
+    return;
+  }
+
+  productcart.map((cart) => {
     if (cart.qty >= 0) {
       let div = document.createElement("div");
+
       let name = document.createElement("p");
       name.innerHTML = cart.name;
+
       let price = document.createElement("p");
-      price.innerHTML = cart.price;
+      price.innerHTML = `₹ ${cart.price}`;
+
       let img = document.createElement("img");
       img.src = cart.img;
-      let deletbtn = document.createElement("button");
-      deletbtn.innerHTML = "Delete";
-      deletbtn.addEventListener("click", () => {
-        productapi.delete(cart.id);
-        displaycart();
-      })
+
       let btn1 = document.createElement("button");
+      btn1.innerText = "+";
+
+      let qty = document.createElement("span");
+      qty.innerText = cart.qty;
+      qty.style.margin = "0 10px";
+
       let btn2 = document.createElement("button");
-      let qty = document.createElement("p");
-      btn1.innerHTML = "+";
-      qty.innerHTML = `Qty:${cart.qty}`;
-      btn2.innerHTML = "-";
+      btn2.innerText = "-";
+
+      let deletbtn = document.createElement("button");
+      deletbtn.innerText = "Delete";
 
       btn1.addEventListener("click", async () => {
-        await productapi.patch(cart.id, { qty: cart.qty + 1 });
-        // window.location.reload()
+        cart.qty += 1;
+        const updatedCart = productcart.map(item =>
+          item.id === cart.id ? { ...item, qty: cart.qty } : item
+        );
+        await cartapi.patch(updatedCart);
         displaycart();
       });
 
       btn2.addEventListener("click", async () => {
         if (cart.qty > 1) {
-          await productapi.patch(cart.id, { qty: cart.qty - 1 });
+          cart.qty -= 1;
+          const updatedCart = productcart.map(item =>
+            item.id === cart.id ? { ...item, qty: cart.qty } : item
+          );
+          await cartapi.patch(updatedCart);
         } else {
-          await productapi.delete(cart.id); // delete if qty becomes 0
+          const newCart = productcart.filter(item => item.id !== cart.id);
+          await cartapi.patch(newCart);
         }
-        // window.location.reload()
-        displaycart(); // refresh cart view
+        displaycart();
       });
+
+      deletbtn.addEventListener("click", async () => {
+        const newCart = productcart.filter(item => item.id !== cart.id);
+        await cartapi.patch(newCart);
+        displaycart();
+      });
+
       div.append(img, name, price, btn1, qty, btn2, deletbtn);
       document.getElementById("display-cart").append(div);
     }
   });
-}
+};
 
 displaycart();
 Logout();
