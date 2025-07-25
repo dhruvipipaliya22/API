@@ -11,7 +11,6 @@ body {
     color: #fff;
     text-decoration: none;
     padding: 10px 15px;
-    font-size: 18px;
 }
 
 #profile {
@@ -33,7 +32,6 @@ body {
 
 #profile p {
     color: #666;
-    font-size: 18px;
 }
 
 #Logout {

@@ -1,27 +1,12 @@
 {
-  "user": [
+  "users": [
     {
       "id": "02d6",
       "name": "dhruvi",
       "email": "dhruvi@gmail.com",
       "password": "221920",
       "cart": []
-    },
-    {
-      "id": "e841",
-      "name": "khushi",
-      "email": "khushi@gmail.com",
-      "password": "221950",
-      "cart": []
     }
   ],
-  "products": [
-    {
-      "id": "79ea",
-      "name": "javascript",
-      "price": "654",
-      "img": "https://cdn-img.prettylittlething.com/7/b/2/5/7b25cab6366f5bb907effc848765ed3201c29238_CML0634_1.jpg",
-      "qty": 5
-    }
-  ]
+  "products": []
 }

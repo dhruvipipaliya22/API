@@ -12,43 +12,49 @@ if (!isLogin) {
 }
 
 const displaycart = async () => {
-  // const cart = user.cart || [];
+
   const productary = await productapi.get();
   document.getElementById("display-cart").innerHTML = "";
-  productary.map((cart,index) => {
-    if (cart.qty >=0) { 
-    let div = document.createElement("div");
-    let name = document.createElement("p");
-    name.innerHTML = cart.name;
-    let price = document.createElement("p");
-    price.innerHTML = cart.price;
-    let img = document.createElement("img");
-    img.src = cart.img;
-    let deletbtn=document.createElement("button");
-    deletbtn.innerHTML="Delete";
-    deletbtn.addEventListener("click",() => { productapi.delete(cart.id); 
-      displaycart();
-    })
-    let btn1=document.createElement("button");
-    let btn2=document.createElement("button");
-    let qty = document.createElement("p");
-    btn1.innerHTML="+";
-    qty.innerHTML = `Qty:${cart.qty}`;
-    btn2.innerHTML="-";
+  productary.map((cart, index) => {
+    if (cart.qty >= 0) {
+      let div = document.createElement("div");
+      let name = document.createElement("p");
+      name.innerHTML = cart.name;
+      let price = document.createElement("p");
+      price.innerHTML = cart.price;
+      let img = document.createElement("img");
+      img.src = cart.img;
+      let deletbtn = document.createElement("button");
+      deletbtn.innerHTML = "Delete";
+      deletbtn.addEventListener("click", () => {
+        productapi.delete(cart.id);
+        displaycart();
+      })
+      let btn1 = document.createElement("button");
+      let btn2 = document.createElement("button");
+      let qty = document.createElement("p");
+      btn1.innerHTML = "+";
+      qty.innerHTML = `Qty:${cart.qty}`;
+      btn2.innerHTML = "-";
 
-    btn1.addEventListener("click",() => {
-      cart[index].qty++;
-      window.location.reload();
-    });
-    btn2.addEventListener("click", () => {
-      if(cart[index].qty>=1){
-        cart[index].qty--;          
-        window.location.reload();
-      }
-    });
-    div.append(img, name, price, btn1,qty,btn2,deletbtn);
-    document.getElementById("display-cart").append(div);
-  }
+      btn1.addEventListener("click", async () => {
+        await productapi.patch(cart.id, { qty: cart.qty + 1 });
+        // window.location.reload()
+        displaycart();
+      });
+
+      btn2.addEventListener("click", async () => {
+        if (cart.qty > 1) {
+          await productapi.patch(cart.id, { qty: cart.qty - 1 });
+        } else {
+          await productapi.delete(cart.id); // delete if qty becomes 0
+        }
+        // window.location.reload()
+        displaycart(); // refresh cart view
+      });
+      div.append(img, name, price, btn1, qty, btn2, deletbtn);
+      document.getElementById("display-cart").append(div);
+    }
   });
 }
 

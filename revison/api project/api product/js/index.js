@@ -1,6 +1,6 @@
 import { Logout } from "../components/helpr.js";
 import navbar from "../components/navbar.js";
-import productapi from "../url/productapi.js";
+import { productapi } from "../url/productapi.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 
@@ -35,39 +35,20 @@ const displayproduct = async () => {
     document.getElementById("display").append(div);
   });
 }
-// const addtocart = async (elem) => {
-//   let user = JSON.parse(localStorage.getItem("userData"));
-//   await productapi.get(`/cart/${user}`);
 
-//   let existproduct = false;
-//   const productary = await productapi.get();
-//   productary.map((e) => {
-//     if (e.id === elem.id) {
-//       e.qty++;
-//       existproduct = true;
-//     }
-//   });
-
-//   if (!existproduct) {
-//     productary.push({ ...elem, qty: 1 });
-//   }
-//   await productapi.patch(`${elem.id}`, { qty: elem.qty + 1 });
-// };
 const addtocart = async (elem) => {
-  // let user = JSON.parse(localStorage.getItem("userData"));
-  // let cart = user.cart || [];
+  const allProducts = await productapi.get();
+  const existProduct = allProducts.find((e) => e.id === elem.id);
 
-  let existProduct = cart.find((e) => item.id === e.id);
-
-  if (existProduct) {
-    existProduct.qty += 1;
+  if (existProduct && existProduct.qty >= 0) {
+    await productapi.patch(elem.id, { qty: existProduct.qty + 1 });
     alert("Product quantity increased in cart.");
   } else {
-    cart.push({ ...elem, qty: 1 });
+    await productapi.patch(elem.id, { qty: 1 }); 
     alert("Product added to cart.");
   }
-
 };
+
 
 displayproduct();
 Logout();
